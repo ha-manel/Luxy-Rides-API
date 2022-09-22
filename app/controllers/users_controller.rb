@@ -13,7 +13,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def login; end
+  def login
+    @user = User.find_by(username: params[:username].downcase)
+    if @user
+      render json: { user: @user, logged_in: true }
+    else
+      render json: { error: 'Username is invalid' }
+    end
+  end
 
   private
 
