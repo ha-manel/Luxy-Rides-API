@@ -1,5 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :user
+  has_many :reservations
 
   validates :model, presence: true
   validates :picture, presence: true
