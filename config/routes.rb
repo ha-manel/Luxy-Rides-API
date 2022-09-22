@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post 'api/v1/register/:username/:name/:email', to: 'users#register'
+  get 'api/v1/login/:username', to: 'users#login'
 end
