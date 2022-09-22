@@ -3,5 +3,5 @@ class Car < ApplicationRecord
 
   validates :model, presence: true
   validates :picture, presence: true
-  validates :driver_name, presence: true, length: {maximum: 50 }
+  validates :driver_name, presence: true, length: { maximum: 50 }
 end
