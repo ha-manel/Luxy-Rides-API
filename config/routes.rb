@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get 'api/v1/cars', to: 'cars#index'
   post 'api/v1/car/:user_id/:model/:picture/:driver_name', to: 'cars#create'
   delete 'api/v1/car/:id', to: 'cars#delete'
+
+  post 'api/v1/reservation/:user_id/:car_id/:city/:date', to: 'reservations#create'
+  get 'api/v1/reservations/:user_id', to: 'reservations#index'
 end
