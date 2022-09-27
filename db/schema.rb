@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_22_091703) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_27_083911) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_22_091703) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "cars", "users"
-  add_foreign_key "reservations", "cars"
-  add_foreign_key "reservations", "users"
+  add_foreign_key "cars", "users", on_delete: :cascade
+  add_foreign_key "reservations", "cars", on_delete: :cascade
+  add_foreign_key "reservations", "users", on_delete: :cascade
 end
