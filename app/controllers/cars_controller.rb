@@ -25,9 +25,7 @@ class CarsController < ApplicationController
     @reserved_cars = Reservation.where(date: params[:date]).distinct.pluck(:car_id)
     @cars = Car.all
     unless @reserved_cars.empty?
-      @reserved_cars.each do |car_id|
-        @cars = @cars.reject { |car| @reserved_cars.include?(car.id) }
-      end
+      @cars = @cars.reject { |car| @reserved_cars.include?(car.id) }
     end
     render json: { cars: @cars }
   end
