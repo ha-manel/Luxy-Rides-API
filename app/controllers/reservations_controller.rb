@@ -9,8 +9,12 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:user_id])
-    render json: { reservations: @user.reservations }
+    @reservations = User.find(params[:user_id]).reservations
+    @result = []
+    @reservations.each do |res|
+      @result << { reservation: res, car: Car.find(res.car_id) }
+    end
+    render json: { reservations: @result }
   end
 
   private
