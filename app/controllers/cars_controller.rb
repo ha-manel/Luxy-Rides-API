@@ -3,6 +3,11 @@ class CarsController < ApplicationController
     render json: { cars: Car.all }
   end
 
+  def show
+    @car = Car.find_by(id: params[:id])
+    render json: { car: @car}
+  end
+
   def create
     @car = Car.new(car_params)
     if @car.save

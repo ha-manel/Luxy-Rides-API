@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'api/v1/login/:username', to: 'users#login'
 
   get 'api/v1/cars', to: 'cars#index'
+  get 'api/v1/car/:id', to: 'cars#show'
   post 'api/v1/car/:user_id/:model/:picture/:driver_name', to: 'cars#create'
   delete 'api/v1/car/:id', to: 'cars#delete'
 
