@@ -36,6 +36,6 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.permit(:user_id, :model, :picture, :driver_name)
+    params.permit(:user_id, :model, :picture, :driver_name, :price)
   end
 end
