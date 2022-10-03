@@ -33,6 +33,11 @@ class CarsController < ApplicationController
     render json: { cars: @cars }
   end
 
+  def display 
+    @car = User.find(params[:user_id]).cars 
+    render json: { car: @car } 
+  end 
+
   private
 
   def car_params
