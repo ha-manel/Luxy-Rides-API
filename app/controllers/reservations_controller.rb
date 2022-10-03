@@ -1,10 +1,15 @@
 class ReservationsController < ApplicationController
   def create
-    @reservation = Reservation.new(reservation_params)
-    if @reservation.save
-      render json: { success: 'The reservation has been created successfully' }
+    @reserved_cars = Reservation.where(date: params[:date]).distinct.pluck(:car_id)
+    if @reserved_cars.include? params[:car_id].to_i
+      render json: { error: 'This car is reserved on this date, please choose another date.' }, status: :not_acceptable
     else
-      render json: { error: 'There was an error, please try again!' }
+      @reservation = Reservation.new(reservation_params)
+      if @reservation.save
+        render json: { success: 'The reservation has been created successfully.' }
+      else
+        render json: { error: 'There was an error, please try again.' }
+      end
     end
   end
 
