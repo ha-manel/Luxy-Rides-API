@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   post 'api/v1/reservation/:user_id/:car_id/:city/:date', to: 'reservations#create'
   get 'api/v1/reservations/:user_id', to: 'reservations#index'
+  get 'api/v1/cars/:user_id', to: 'cars#display' 
 end
