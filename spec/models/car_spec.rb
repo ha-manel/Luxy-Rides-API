@@ -7,7 +7,6 @@ RSpec.describe Car, type: :model do
   end
 
   context 'model validations' do
-
     it 'should be valid' do
       expect(@car).to be_valid
     end
