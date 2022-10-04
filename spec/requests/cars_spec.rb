@@ -18,4 +18,12 @@ RSpec.describe CarsController, type: :controller do
     end
   end
 
+  describe 'GET index' do
+    it 'returns cars array' do
+      get :index
+      expect(response.status).to eq(200)
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response).not_to be_empty
+    end
+  end
 end
