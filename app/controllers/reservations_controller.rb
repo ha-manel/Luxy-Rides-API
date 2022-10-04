@@ -6,9 +6,9 @@ class ReservationsController < ApplicationController
     else
       @reservation = Reservation.new(reservation_params)
       if @reservation.save
-        render json: { success: 'The reservation has been created successfully.' }
+        render json: { success: 'The reservation has been created successfully.' }, status: :created
       else
-        render json: { error: 'There was an error, please try again.' }
+        render json: { error: 'There was an error, please try again.' }, status: :internal_server_error
       end
     end
   end
@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
     @reservations.each do |res|
       @result << { reservation: res, car: Car.find(res.car_id) }
     end
-    render json: { reservations: @result }
+    render json: { reservations: @result }, status: :ok
   end
 
   private

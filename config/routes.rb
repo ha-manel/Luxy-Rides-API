@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   post 'api/v1/car', to: 'cars#create'
   delete 'api/v1/car/:id', to: 'cars#delete'
   get 'api/v1/reserve/cars/:date', to: 'cars#reserve'
+  get 'api/v1/cars/:user_id', to: 'cars#user_cars' 
 
   post 'api/v1/reservation/:user_id/:car_id/:city/:date', to: 'reservations#create'
   get 'api/v1/reservations/:user_id', to: 'reservations#index'
-  get 'api/v1/cars/:user_id', to: 'cars#display' 
 end
