@@ -11,9 +11,9 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     if @car.save
-      render json: { success: 'The car has been created successfully' }
+      render json: { success: 'The car has been created successfully.' }
     else
-      render json: { error: 'There was an error, please try again!' }
+      render json: { error: 'There was an error, please try again!' }, status: :internal_server_error
     end
   end
 
@@ -22,7 +22,7 @@ class CarsController < ApplicationController
     if @car.destroy!
       render json: { success: 'The car has been deleted successfully' }
     else
-      render json: { error: 'There was an error, please try again!' }
+      render json: { error: 'There was an error, please try again!' }, status: :internal_server_error
     end
   end
 

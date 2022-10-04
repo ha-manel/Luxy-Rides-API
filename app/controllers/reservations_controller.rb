@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
       if @reservation.save
         render json: { success: 'The reservation has been created successfully.' }
       else
-        render json: { error: 'There was an error, please try again.' }
+        render json: { error: 'There was an error, please try again.' }, status: :internal_server_error
       end
     end
   end
