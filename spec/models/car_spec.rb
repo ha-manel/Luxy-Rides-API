@@ -16,5 +16,15 @@ RSpec.describe Car, type: :model do
       @car.model = nil
       expect(@car).to_not be_valid
     end
+
+    it 'should be invalid without no driver name' do
+      @car.driver_name = nil
+      expect(@car).to_not be_valid
+    end
+
+    it 'should be invalid without no picture given' do
+      @car.picture = nil
+      expect(@car).to_not be_valid
+    end
   end
 end
