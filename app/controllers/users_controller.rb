@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       @user.username = @user.username.downcase
       if @user.save
-        render json: { user: @user, logged_in: true }
+        render json: { user: @user, logged_in: true }, status: :created
       else
         render json: { error: 'There was an error, please try again!' }, status: :internal_server_error
       end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(username: params[:username].downcase)
     if @user
-      render json: { user: @user, logged_in: true }
+      render json: { user: @user, logged_in: true }, status: :ok
     else
       render json: { error: 'Username is invalid.' }, status: :not_acceptable
     end
