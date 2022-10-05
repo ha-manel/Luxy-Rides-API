@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   post 'api/v1/register/:username/:name/:email', to: 'users#register'
   get 'api/v1/login/:username', to: 'users#login'
 
