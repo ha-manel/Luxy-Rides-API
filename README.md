@@ -16,6 +16,15 @@ Main features of this website are:
 - Live demo [link](https://luxy-ride-frontend.vercel.app/)👈
 - API deployment [link](https://luxy-rides-api.herokuapp.com/api-docs/index.html)👈
 - Front-end GitHub repository [link](https://github.com/ha-manel/Luxy-Rides-Frontend)👈
+
+## Kanban Board
+
+### Kanban Board [link](https://github.com/ha-manel/Luxy-Rides-API/projects/1)
+
+### Initial state of the Kanban Board:
+![image](https://user-images.githubusercontent.com/50721479/194105755-0a7a8b4d-9214-4fe3-8731-2512b95b56b6.png)
+
+### Team members: 3 (Hammouche Manel, Hammad Siddique, Toussaint Saraza)
  
 ## Built With 🛠️
 
