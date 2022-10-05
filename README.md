@@ -1,26 +1,28 @@
-# Luxy Ride Backend
+# Luxy Rides API
 
-This project is based on reservation of fancy cars. If you're looking for a special for a special day/event this web app is the best place for you. If you are have a luxury car and want to make some extra money on it, you can add that to our web app! Main features of this web app are:
+This project is made for the reservation of fancy cars. If you're preparing for a special day/event and you want a cool car for it this website is the best place for you. If you have a luxurious car and want to make some extra money from it, you can add that to our website and others will be able to reserve it!
 
- - User can see details of all the cars.
- - Users can reserve a car, but they can't reserve the same car twice on the same day.
- - Users can add their own cars and remove them if they want.
+Main features of this website are:
 
-## The Database Structure:
+ - Users can see details of all the cars.
+ - Users can reserve a car for a special day (a car that hasn't been reserved yet).
+ - Users can add their own cars and remove them if they want to.
 
-![drawSQL-export-2022-10-05_14_59](https://user-images.githubusercontent.com/67911212/194089752-088e3150-daf5-4549-aa40-fc99a32e9fc4.png)
+## Database Structure:
+<img src="https://user-images.githubusercontent.com/67911212/194089752-088e3150-daf5-4549-aa40-fc99a32e9fc4.png" width="650">
 
 ## Project Documentation 📄
 
-- Here you can check out the [frontend repoistory](https://github.com/ha-manel/Luxy-Ride-Frontend) for this project.
-- Here is the deployed app on [Heroku](https://luxy-rides-api.herokuapp.com/api-docs/index.html)👈
+- Live demo [link](https://luxy-ride-frontend.vercel.app/)👈
+- API deployment [link](https://luxy-rides-api.herokuapp.com/api-docs/index.html)👈
+- Front-end GitHub repository [link](https://github.com/ha-manel/Luxy-Rides-Frontend)👈
  
 ## Built With 🛠️
 
- - Programming Language: Ruby, SQL
- - Framework: Ruby on Rails
- - Database: PostgreSQL
- - Code Editor: VS Code
+ - Programming Languages: Ruby, SQL.
+ - Framework: Ruby on Rails.
+ - Database: PostgreSQL.
+ - Code Editor: VS Code.
  
 ## Getting Started
  
@@ -39,7 +41,7 @@ $ git --version
 ```
 $ ruby --version && irb
 ```
-To install rails, in the terminal kindly run this command
+To install rails, in the terminal kindly run this command:
 
 ```
 $ gem install rails
@@ -53,7 +55,7 @@ Clone the repository using the GitHub link provided below.
 
 In the terminal, go to your file directory and run this command.
 ```
-$ git clone git@github.com:ha-manel/Luxy-Ride-API.git
+$ git clone git@github.com:ha-manel/Luxy-Rides-API.git
 ```
 ### Usage
 
@@ -64,15 +66,22 @@ Kindly modify the files as needed.
 Make your way to the correct directory by running this command:
 
 ```
-$ cd Luxy-Ride-API
+$ cd Luxy-Rides-API
 ```
 
-Install the required libraries needed to run the project by this command:
+Install the required dependencies to run the project with this command:
 ```
 $ bundle install
 ```
 
-and then to see in your browser, write this command:
+Setup the database, run:
+```
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
+
+Then run it in your browser with this command:
 
 ```
 $ rails server
@@ -80,7 +89,7 @@ $ rails server
 
 ### Run tests
 
-To run tests, please run this command
+To run tests, please run this command:
 ```
 $ rspec
 ```
