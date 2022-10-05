@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
-  #Redirect to api-docs
-  get '*path', to: redirect('/api-docs')
+  root to: redirect('/api-docs')
 
   post 'api/v1/register/:username/:name/:email', to: 'users#register'
   get 'api/v1/login/:username', to: 'users#login'
@@ -17,4 +16,7 @@ Rails.application.routes.draw do
 
   post 'api/v1/reservation/:user_id/:car_id/:city/:date', to: 'reservations#create'
   get 'api/v1/reservations/:user_id', to: 'reservations#index'
+
+  #Redirect to api-docs
+  get '*path', to: redirect('/api-docs')
 end
