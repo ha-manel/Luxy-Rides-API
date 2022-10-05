@@ -1,0 +1,149 @@
+---
+openapi: 3.0.1
+info:
+  title: Luxy Rides API Documentation
+  version: v1
+paths:
+  "/api/v1/cars":
+    get:
+      summary: list cars
+      responses:
+        '200':
+          description: successful
+  "/api/v1/car/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show car
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete car
+      responses:
+        '200':
+          description: successful
+  "/api/v1/car":
+    post:
+      summary: create car
+      responses:
+        '200':
+          description: successful
+  "/api/v1/reserve/cars/{date}":
+    parameters:
+    - name: date
+      in: path
+      description: date
+      required: true
+      schema:
+        type: string
+    get:
+      summary: reserve car
+      responses:
+        '200':
+          description: successful
+  "/api/v1/cars/{user_id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: user_cars car
+      responses:
+        '200':
+          description: successful
+  "/api/v1/reservation/{user_id}/{car_id}/{city}/{date}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: car_id
+      in: path
+      description: car_id
+      required: true
+      schema:
+        type: string
+    - name: city
+      in: path
+      description: city
+      required: true
+      schema:
+        type: string
+    - name: date
+      in: path
+      description: date
+      required: true
+      schema:
+        type: string
+    post:
+      summary: create reservation
+      responses:
+        '200':
+          description: successful
+  "/api/v1/reservations/{user_id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+  "/api/v1/register/{username}/{name}/{email}":
+    parameters:
+    - name: username
+      in: path
+      description: username
+      required: true
+      schema:
+        type: string
+    - name: name
+      in: path
+      description: name
+      required: true
+      schema:
+        type: string
+    - name: email
+      in: path
+      description: email
+      required: true
+      schema:
+        type: string
+    post:
+      summary: register user
+      responses:
+        '200':
+          description: successful
+  "/api/v1/login/{username}":
+    parameters:
+    - name: username
+      in: path
+      description: username
+      required: true
+      schema:
+        type: string
+    get:
+      summary: login user
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost

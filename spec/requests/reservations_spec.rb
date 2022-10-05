@@ -1,30 +1,49 @@
-require 'rails_helper'
+require 'swagger_helper'
 
-RSpec.describe ReservationsController, type: :controller do
-  before :all do
-    @user = User.create(email: 'test@test.com', name: 'Test', username: 'test')
-    @car = Car.create(model: 'BMW', picture: 'picture link', driver_name: 'test', price: 250, user_id: @user.id)
+RSpec.describe 'reservations', type: :request do
+  path '/api/v1/reservation/{user_id}/{car_id}/{city}/{date}' do
+    # You'll want to customize the parameter types...
+    parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
+    parameter name: 'car_id', in: :path, type: :string, description: 'car_id'
+    parameter name: 'city', in: :path, type: :string, description: 'city'
+    parameter name: 'date', in: :path, type: :string, description: 'date'
+
+    post('create reservation') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
+        let(:car_id) { '123' }
+        let(:city) { '123' }
+        let(:date) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
   end
 
-  describe 'POST create' do
-    it 'returns status 201' do
-      post :create, params: { user_id: @user.id, car_id: @car.id, city: 'test', date: '2022-09-04' }
-      expect(response.status).to eq(201)
-    end
+  path '/api/v1/reservations/{user_id}' do
+    # You'll want to customize the parameter types...
+    parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
 
-    it 'returns status 406' do
-      post :create, params: { user_id: @user.id, car_id: @car.id, city: 'test', date: '2022-09-05' }
-      post :create, params: { user_id: @user.id, car_id: @car.id, city: 'test', date: '2022-09-05' }
-      expect(response.status).to eq(406)
-    end
-  end
+    get('list reservations') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
 
-  describe 'GET index' do
-    it 'returns reservations array' do
-      get :index, params: { user_id: @user.id }
-      expect(response.status).to eq(200)
-      parsed_response = JSON.parse(response.body)
-      expect(parsed_response).not_to be_empty
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
     end
   end
 end

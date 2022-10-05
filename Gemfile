@@ -8,6 +8,10 @@ gem 'rails', '~> 7.0.4'
 
 gem 'rubocop'
 
+gem 'rswag'
+
+gem 'dotenv-rails'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
