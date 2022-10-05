@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 RSpec.describe 'users', type: :request do
-
   path '/api/v1/register/{username}/{name}/{email}' do
     # You'll want to customize the parameter types...
     parameter name: 'username', in: :path, type: :string, description: 'username'
